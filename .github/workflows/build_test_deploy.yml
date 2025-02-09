@@ -36,22 +36,18 @@ jobs:
     needs: build_test
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout the Repository
-      uses: actions/checkout@v4
-    - name: Use Node.js 22
-      uses: JorgeLNJunior/reder-deploy@v1.4.4
-      with:
-        service_id: ${{ secrets.MY_RENDER_SERVICE_ID_BE}}
-        api_key: ${{ secrets.MY_RENDER_API_KEY}}
+        - uses: actions/checkout@v3
+        - uses: JorgeLNJunior/render-deploy@v1.4.4
+          with:
+            service_id: ${{ secrets.MY_RENDER_SERVICE_ID_BE }}
+            api_key: ${{ secrets.MY_RENDER_API_KEY }}
 
   deploy-fe:
     needs: build_test
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout the Repository
-      uses: actions/checkout@v4
-    - name: Use Node.js 22
-      uses: JorgeLNJunior/reder-deploy@v1.4.4
-      with:
-        service_id: ${{ secrets.MY_RENDER_SERVICE_ID_FE}}
-        api_key: ${{ secrets.MY_RENDER_API_KEY}}
+        - uses: actions/checkout@v3
+        - uses: JorgeLNJunior/render-deploy@v1.4.4
+          with:
+            service_id: ${{ secrets.MY_RENDER_SERVICE_ID_FE }}
+            api_key: ${{ secrets.MY_RENDER_API_KEY }}
